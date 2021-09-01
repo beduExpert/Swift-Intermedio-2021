@@ -7,7 +7,7 @@ Este módulo es la continuación del curso de Swift Fundamentals. Durante las se
 
 ### Antes de comenzar...
 
-Verifica tener **Xcode 12 instalado.
+Verifica tener **Xcode 12 instalado.**
 
 ### OBJETIVO 
 
