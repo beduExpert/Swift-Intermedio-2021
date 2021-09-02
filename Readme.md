@@ -1,6 +1,6 @@
 `Desarrollo Mobile` > `Swift Intermedio`
 
-## Módulo: Swift Intermedio
+## Módulo: Swift Intermedio.
 
 Bienvenidos al curso de Programación en Swift Intermedio.
 Este módulo es la continuación del curso de Swift Fundamentals. Durante las sesiones de este curso profundizaremos mas sobre Swift y iOS.
