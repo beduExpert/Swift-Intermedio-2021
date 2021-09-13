@@ -4,6 +4,9 @@
 
 ## Mostrando Info en un Table View
 
+### INTRODUCCIÓN
+
+Las tablas nos permitirán mostrar distintos tipos de información, desde simples cadenas de texto, hasta complejas interfaces de usuario en cada celda.
 
 ### OBJETIVO
 

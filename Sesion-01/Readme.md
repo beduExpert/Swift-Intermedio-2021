@@ -1,7 +1,11 @@
 
-Desarrollo Mobile` > `Swift Intermedio`
+Desarrollo Mobile` > `Swift Intermedio
 
 ## TableView y Funciones en Swift
+
+### INTRODUCCIÓN
+
+Las tablas son uno de los elementos más importantes en la Interfaz de usuario de cualquier aplicación, no importa si es web, móbile o desktop. Por otra parte, el uso de las funciones en Swift es prácticamente la base de la programación, pues hasta el app más sencilla tendrá por lo menos un par de acciones (eventos del usuario) en donde se usan las funciones (métodos). 
 
 ### OBJETIVOS 
 
@@ -24,3 +28,4 @@ Desarrollo Mobile` > `Swift Intermedio`
 ### Postwork
 
 - [Postwork](Postwork)
+

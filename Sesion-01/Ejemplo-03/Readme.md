@@ -4,6 +4,9 @@
 
 ## Implementando Funciones
 
+### INTRODUCCIÓN
+
+Las funciones son el elemento fundamental de la programación. Nos permitirán controlar distintos escenarios en nuestras Apps, y poder manejar tipos distintos de información desde tipos nativos hasta los tipos personalizados.
 
 ### OBJETIVO
 

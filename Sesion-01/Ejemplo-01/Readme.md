@@ -3,6 +3,9 @@
 
 ## Cómo agregar un TableView a nuestro ViewController
 
+### INTRODUCCIÓN
+
+Los objetos TableView se pueden agregar de varias maneras a un proyecto iOS, y cada una de ellas nos ofrece ventajas y desventajas. 
 
 ### OBJETIVO
 
