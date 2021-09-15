@@ -8,6 +8,10 @@
 
 ## **Tableviews y Funciones en Swift**
 
+### INTRODUCCIÓN
+
+Durante la sesión se aprendió como los objetos TableView se pueden agregar de varias maneras a nuestro proyecto iOS. Es importante identificar las ventajas y desventajas que cada una de ellas nos ofrece para poder elegir la más apropiada dependiendo del proyecto que estemos realizando.
+
 
 
 ### OBJETIVO
