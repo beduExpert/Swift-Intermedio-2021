@@ -1,10 +1,10 @@
  `Desarrollo Mobile` > `Swift Intermedio` 
 	
-## Agregando pins en mapa 
+## Integrando mas componentes de UIKit
 
 ### OBJETIVO 
 
-- Agregar funcionalidad al **Ejemplo-01**, mostrar pines en el mapa e integración con TableView.
+- Agregar más controles al **Ejemplo-01**
 
 #### REQUISITOS 
 
@@ -12,15 +12,11 @@
 
 #### DESARROLLO
 
-Ya sabes mostrar elementos en un TableView.
-Es momento de agregar dos elementos al TableView.
+Ya sabes mostrar elementos en una Vista. Es momento de agregar el código necesario para presentar los elementos restantes 
 
-1. Agregar dos elementos en la lista del TableView, estos elementos son las ubicaciones que tenemos disponibles de momento.
-
-	- Angel de la Independencia
-	- Palacio de Bellas Artes.
-
-2. Estos dos elementos deben mostrarse en el TableView como un texto y pines en el mapa.
+1. Agregar otro botón al lado contrario del primero
+2. Agregar el segundo slider y su etiqueta "volumen". 
+3. Al finalizar el reto la interfaz debe verse como en la imagen:
 
 ![](0.png)
 
@@ -29,34 +25,27 @@ Es momento de agregar dos elementos al TableView.
 <p>  Dentro de MainViewController debemos tener los elementos de UIKit: titleLabel, mapView, tableView. </p>
 <p>  Se debe contar con un array para almacenar los nombres de las ubicaciones. </p>
 
-```
-var locations: [String] = []
-```
-
-<p> El mapa debe configurarse para poner dos pines en el mapa de la siguiente manera. </p>
 
 ```
-let coordinates = Coordinates()
-    let locationAngel = CLLocationCoordinate2D(latitude: coordinates.angel.lat,
-                                               longitude: coordinates.angel.long)
-    let locationPalace = CLLocationCoordinate2D(latitude: coordinates.palace.lat,
-                                                longitude: coordinates.palace.long)
-    
-    locations.append(coordinates.angel.name)
-    locations.append(coordinates.palace.name)
+        let b2=UIButton(type: .system)
+        b2.setTitle("Stop", for: .normal)
+        b2.autoresizingMask = .flexibleWidth
+        b2.translatesAutoresizingMaskIntoConstraints=true
+        b2.frame=CGRect(x:self.view.frame.width-100, y: 100, width: 100, height: 40)
+        self.view.addSubview(b2)
+        
+        let l2=UILabel()
+        l2.text="Volumen"
+        l2.autoresizingMask = .flexibleWidth
+        l2.translatesAutoresizingMaskIntoConstraints=true
+        l2.frame=CGRect(x: 20, y: 200, width: 100, height: 40)
+        self.view.addSubview(l2)
 
-    let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
-    let region = MKCoordinateRegion(center: locationAngel, span: span)
-    mapView.setRegion(region, animated: true)
-
-    addAnnotation(coordinate: locationAngel,
-                  name: coordinates.angel.name,
-                  subtitle: coordinates.angel.subtitle)
-    
-    addAnnotation(coordinate: locationPalace,
-                  name: coordinates.palace.name,
-                  subtitle: coordinates.palace.subtitle)
-
+        let s2=UISlider()
+        s2.autoresizingMask = .flexibleWidth
+        s2.translatesAutoresizingMaskIntoConstraints=true
+        s2.frame=CGRect(x: 20, y: 250, width: self.view.frame.width/2, height: 50)
+        self.view.addSubview(s2)
 ```
 
 </details>

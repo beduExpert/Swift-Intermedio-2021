@@ -1,59 +1,86 @@
- 
 `Desarrollo Mobile` > `Swift Intermedio` 
 	
-## Agregando funcionalidad al nuevo Layout 
+
+## Agregando componentes a un UIPickerView 
 
 ### OBJETIVO 
 
-- Una vez agregado mas componentes de UI a la app, el alumno deberá poder asignar sus IBActions e implementar la funcionalidad correspondiente. 
+- Una vez que ya hemos agregado un objeto UIPickerView a la UI de la app, el alumno deberá poder determinar como agregar más componentes al mismo. 
 
 #### REQUISITOS 
 
-0. Xcode 11
+0. Xcode
 1. Ejemplo-02 concluido, servirá de base para este reto.
 
 #### DESARROLLO
 
-Hasta ahora solo hemos conectado los nuevos componentes de UI.
-Es momento de agregar la funcionalidad.
+1. Analiza el código del Ejemplo anterior, y determina para qué se ocupa cada uno de los métodos delegados del objeto UIPickerView
 
-1. Agregaremos un IBAction conectado al UISwitch para mostrar nuestra  el camino entre pines.
+2. UIKit incluye un objeto UIDatePicker que es una especialización de PickerView para poder mostrar fechas y horas. ¿Qué código necesitarías implementar para poder mostrar un PickerView como el de la siguiente imagen?
 
-2. Agregaremos un IBAction al UISegmentedControl para cambiar el estilo del mapa.
+   
 
-![](0.gif)
+![ese ](0.png)
 
 <details>
 	<summary>Solución</summary>
 	<p>La funcionalidad del Switch para mostrar el camino entre pines: </p>
-	
-```
-  @IBAction func showPath(_ sender: Any) {
-    if showPathSwitch.isOn {
-      let coordinates = Coordinates()
-      let locationAngel = CLLocationCoordinate2D(latitude: coordinates.angel.lat, longitude: coordinates.angel.long)
-      let locationPalace = CLLocationCoordinate2D(latitude: coordinates.palace.lat, longitude: coordinates.palace.long)
-      let sourcePlacemark = MKPlacemark(coordinate: locationAngel, addressDictionary: nil)
-      let destinationPlacemark = MKPlacemark(coordinate: locationPalace, addressDictionary: nil)
-      let sourceMapItem = MKMapItem(placemark: sourcePlacemark)
-      let destinationMapItem = MKMapItem(placemark: destinationPlacemark)
-      directions(source: sourceMapItem, destination: destinationMapItem)
-    } else {
-      self.mapView.removeOverlays(self.mapView.overlays)
-    }
-  }
-```
-
-<p> El IBAction para cambiar el estilo de los mapas: </p>
 
 ```
-@IBAction func changeMapStyle(_ sender: Any) {
-    if segmented.selectedSegmentIndex == 0 {
-      mapView.mapType = .standard
-    } else {
-      mapView.mapType = .satellite
+     let dataArray = ["English", "Maths", "History", "German", "Science"]
+    // Declaramos los arreglos que se utilizarán para llenar el PickerView
+    let mesesArray = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
+    // Estos dos arreglos los llenaremos con un ciclo por facilidad
+    var diasArray = [String]()
+    var aniosArray = [String]()
+    
+		override func viewDidLoad() {
+        super.viewDidLoad()
+        // llenamos el arreglo de días con números como String
+        for d in 1...31 {
+            diasArray.append(String(d))
+        }
+        // llenamos el arreglo de años con números como String
+        for a in 1950...2021 {
+            aniosArray.append(String(a))
+        }
+        let UIPicker: UIPickerView = UIPickerView()
+        UIPicker.delegate = self as UIPickerViewDelegate
+        UIPicker.dataSource = self as UIPickerViewDataSource
+        self.view.addSubview(UIPicker)
+        UIPicker.center = self.view.center
+ 		}
+ 
+ 
+    // metodos requeridos de UIPickerViewDelegate y UIPickerViewDataSource
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+       return 3 // 3 "columnas": dia, mes y año de la fecha
     }
-  }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        // es necesario evaluar que "columna" se está configurando para determinar cuantos elementos hay que presentar, es decir, que arreglo se usará
+        if component == 0 {
+            return diasArray.count
+        }
+        if component == 1 {
+            return mesesArray.count
+        }
+        
+        return aniosArray.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        // es necesario evaluar que "columna" se está configurando para determinar de que arreglo tomar el String
+        var rowStr = aniosArray[row]
+        if component == 0 {
+            rowStr = diasArray[row]
+        }
+        if component == 1 {
+            rowStr = mesesArray[row]
+        }
+       return rowStr
+    }
 ```
+
 </details> 
 

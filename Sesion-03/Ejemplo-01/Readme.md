@@ -1,40 +1,90 @@
-
 `Desarrollo Mobile` > `Swift Intermedio` 
 
 
 ## Componentes de UIKit
 
+### INTRODUCCIÓN
+
+Para realizar el diseño de la interfaz con el framework UIKit, es necesario conocer los distintos componentes que se pueden colocar en las vistas para poder responder satisfactoriamente a las expectativas de los usuarios.
+
 ### OBJETIVO
 
 - Aprender a utilizar algunos de los componentes de UIKit y conectarlos al ViewController.
 
-- En el módulo anterior de *Swift Basics* se desarrolló una App sencilla de Login. 
-En esta sesión continuaremos con su desarrollo.
-Integraremos más componentes de UIKit.
-
+  
 
 #### REQUISITOS
 
-1. Utilizar el [template](template) proporcionado.
+1. Proyecto terminado del modulo 1.
+
+   
 
 #### DESARROLLO
 
-1.- Comenzaremos el proyecto utilizando el Template proporcionado.
+1.- Como recordaras desde la librería de objetos, puedes arrastrar cualquiera de ellos hacia la vista para crear una instancia del Objeto. Otra posibilidad es crear los objetos directamente en la clase con código Swift. En una vista adicional al Login, recrearemos el sig. Layout. 
 
-2.- En la vista posterior al Login, recrearemos el sig. Layout.
 
-![](0.png)
 
-3.- Ajustar los constraints.
+![0](0.png)
 
-![](2.png)
+- Los objetos que integran la interfaz son (de arriba hacia abajo, izquierda a derecha):
+  - UILabel (con el texto AudioPlayer).
+  - UIButton (con el texto Play).
+  - UIButton (con el texto Stop).
+  - UISlider (para controlar la reproducción, adelantar/retroceder).
+  - UILabel (con el texto volumen).
+  - UISlider (para controlar el volumen).
+  
+- Para agregar el primer elemento UILabel, agrega el siguiente código en el método viewDidLoad:
 
-4.- Agregaremos el Framework de MapKit al proyecto.
+  ​	**let** l1=UILabel()
 
-5.- Conectamos los IBOutlets al ViewController.
+  ​    l1.text="AudioPlayer"
 
-6.- Agregaremos el Framework al ViewController correspondiente a esta nueva vista.
+  ​    l1.font=UIFont.systemFont(ofSize: 24)
 
-7.- Agregamos Delegates correspondientes.
+  ​    l1.autoresizingMask = .flexibleWidth
 
-![](1.png)
+  ​    l1.translatesAutoresizingMaskIntoConstraints=**true**
+
+  ​    l1.frame=CGRect(x: 0, y: 50, width: **self**.view.frame.width, height: 50)
+
+  ​    l1.textAlignment = .center
+
+  ​    **self**.view.addSubview(l1)
+
+  
+
+- Para agregar el primer elemento UIButton, agrega el siguiente código después del código anterior:
+
+  ​    **let** b1=UIButton(type: .system)
+
+  ​    b1.setTitle("Play", for: .normal)
+
+  ​    b1.autoresizingMask = .flexibleWidth
+
+  ​    b1.translatesAutoresizingMaskIntoConstraints=**true**
+
+  ​    b1.frame=CGRect(x: 20, y: 100, width: 100, height: 40)
+
+  ​    **self**.view.addSubview(b1)
+
+  
+
+- Para agregar el primer elemento UISlider, agrega el siguiente código después del código anterior:
+
+  ​	**let** s1=UISlider ()
+
+  ​    s1.autoresizingMask = .flexibleWidth
+
+  ​    s1.translatesAutoresizingMaskIntoConstraints=**true**
+
+  ​    s1.frame=CGRect(x: 20, y:150, width: **self**.view.frame.width-40, height: 50)
+
+  ​    **self**.view.addSubview(s1)
+
+  
+
+- En este momento la vista se verá como en la siguiente imagen:
+
+  ![1](1.png)

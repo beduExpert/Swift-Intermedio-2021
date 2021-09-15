@@ -1,24 +1,42 @@
-
 `Desarrollo Mobile` > `Swift Intermedio` 
 
-## Clase para navigation
+### **POSTWORK**
 
-### OBJETIVO
+#### Sesión 03
 
-- Reforzar el concepto de clase
+#### **Elementos de UlKit**
 
-#### REQUISITOS
+ 
 
-1. Xcode 11
-2. Reto-03 terminado.
+#### **🔎** **Introducción**
 
-#### DESARROLLO
+En este postwork se retomarán los conceptos vistos en las sesiones anteriores para poder completar la definición de la vista del TableView
 
-1.- Continuaremos con concepto de Clase, esta vez implementar una clase que se encargue de manejar los eventos de push y present del navigation.
+#### **Asegúrate de comprender:**
 
-2.- Una vez implementada la clase, sustituir el código donde antes teniamos:
+1. Cuándo y cómo es necesario utilizar cada objeto del framework UIKit
+2. Cómo configurar el tamaño y posición de un objeto
 
-```
- let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "MainViewController") as? MainViewController
-    self.navigationController?.pushViewController(vc!, animated: true)
-```
+#### **Objetivo**
+
+●   Reforzar los aprendizajes sobre las distintas clases del framework UIKit
+
+●   Diseñar la personalización de las celdas de un TableView
+
+#### **Desarrollo:**
+
+●   Retomar el proyecto Xcode del módulo
+
+●   En la clase que agregamos, subclase de UITableViewCell, define los objetos UIKit necesarios como properties, para que la celda se vea como la siguiente imagen:**![img](0.png)**
+
+(Los objetos son: un imageview, dos labels y un botón con imagen)
+
+ 
+
+●   Sobreescribe el método init para instanciar, configurar y colocar los objetos en la celda
+
+Los iconos de la nota musical y el botón play, se pueden obtener gratuitamente de los siguientes links:
+
+https://fonts.google.com/icons?selected=Material+Icons:audiotrack:
+
+https://fonts.google.com/icons?selected=Material+Icons:play_circle:
