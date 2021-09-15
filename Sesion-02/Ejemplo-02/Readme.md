@@ -4,6 +4,10 @@
 
 ## Herencia y Polimorfismo
 
+### INTRODUCCIÓN
+
+La herencia, como el concepto base de la POO presenta algunas complejidades que se pueden solventar con el concepto de Polimorfismo, el cuál también está presente en Swift.
+
 ### OBJETIVO
 
 - Definir clases propias y analizar el concepto de Polimorfismo.

@@ -3,7 +3,11 @@
 
 ## Protocolos y Herencia
 
-### OBJETIVO
+### INTRODUCCIÓN
+
+La POO generalmente implica Herencia, aunque la herencia en ocasiones nos puede presentar problemas que es mejor resolver usando Composición, por lo que es importante entender las diferencias y similitudes entre estos dos mecanismos para elegir el que nos dé más ventajas. 
+
+#### OBJETIVO
 
 - Definir protocolos, con sus propiedades y métodos así como tambien implementar herencia y extensiones.
 

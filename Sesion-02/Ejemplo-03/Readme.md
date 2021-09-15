@@ -3,6 +3,10 @@
 
 ## Protocolos
 
+### INTRODUCCIÓN
+
+La POP nos permite resolver las situaciones complejas que plantea la POO, además de que nos facilita la escritura de código más mantenible, de hecho la POP está fuertemente relacionada con la filosofía Swift ya que hace que nuestro código sea más legible, reutilizable y limpio.
+
 ### OBJETIVO
 
 - Definir protocolos, con sus propiedades y métodos.

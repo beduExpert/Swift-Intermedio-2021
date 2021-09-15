@@ -3,6 +3,10 @@
 
 ## Definiendo métodos de clase
 
+### INTRODUCCIÓN
+
+La base de la POO es el concepto de la herencia. Es un concepto que se requiere en el desarrollo de software en prácticamente cualquier lenguaje de programación y Swift no es la excepción.
+
 ### OBJETIVO
 
 - Reconocer el concepto de clase y herencia. Implementar una clase padre y una clase hija.
