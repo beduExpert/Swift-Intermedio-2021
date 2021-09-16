@@ -1,40 +1,42 @@
  
 `Desarrollo Mobile` > `Swift Intermedio` 
 	
-## Agregando vista de detalle a App de Login/Maps
+## Navegación completa por código
 
 ### OBJETIVO 
 
-- Reforzar el conocimiento adquirido de como implementar DetailViews a partir de un TableView.
+- En la sesión 3 realizamos un proyecto de una app con login y vista de mapas. En este reto utilizaremos el proyecto final para implementar los flujos de navegación mediante código únicamente.
 
 #### REQUISITOS 
 
-1. **Reto-02** terminado y funcionando, de no ser posible, proyecto final de la **Sesión-03**.
+1. Proyecto final de la sesión 03 funcionando.
+
 
 #### DESARROLLO
 
-1.- Una vez abierto el proyecto, dirigete a `MainViewController` e implementa la función:
+1.- Abrir el Proyecto Final.
 
-> func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+2.- Dirigirnos al Storyboard y detectar el Segue:
 
-2.- Esta función debera abrir una vista de detalle donde muestre información del destino seleccionado.
+![](0.png)
 
-Solamente mostraremos el nombre del lugar seleccionado.
-
-![](0.gif)
-
-Si lo deseas implementa un Modelo que ayude a pasar los datos a la vista de Detalle.
-
+3.- Lo eliminamos e implementamos el código para mostrar esa misma vista.
 
 <details>
         <summary>Solución</summary>
-<p> Para implementar la función didSelectRowAt: </p>
-<p> Ojo cabe mencionar que en este caso estamos pasando las coordenadas, pero lo ideal seria pasar un modelo. </p>
+<p> Una vez eliminado el Segue que conecta a Login con Register...</p>
+
+<p> Agregar un ID al Viewcontroller de Registro de cuenta.</p>
+
+<p> Ir al ViewController de login y agregar un IBAction al botón Registrar.</p>
+
+<p> Este IBAction implementará el sig. código: </p>
+
 ```
-  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let vc = storyboard?.instantiateViewController(identifier: "DetailViewController") as! DetailViewController
-    let locations = mapLocation.getLocationsNames()
-    vc.nameValue = locations[indexPath.row]
+  @IBAction func register(_ sender: Any) {
+    let vc = storyboard?.instantiateViewController(identifier: "registerVC") as! AccountRegisterViewController
     self.navigationController?.pushViewController(vc, animated: true)
   }
-```  
+```
+
+</details>

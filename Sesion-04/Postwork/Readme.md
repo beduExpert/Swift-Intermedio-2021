@@ -1,21 +1,38 @@
 `Desarrollo Mobile` > `Swift Intermedio` 
 
-## Vista de detalle con mas información
+#### **POSTWORK**
 
-### OBJETIVO
+#### Sesión 04
 
-- Enviar mas datos a la vista de detalle.
+### **Flujo del programa (navegación entre vistas)**
 
-#### REQUISITOS
+ 
 
-1. Xcode 11
-2. Haber terminado el Reto-03.
+#### **🔎** **Introducción**
 
-#### DESARROLLO
+En este postwork se retomarán los conceptos vistos en la sesión sobre los distintos paradigmas existente para la navegación entre vistas en el App
 
-1.- Con base al Reto-03, implementar una vista que permita enviar mas datos ej.
+#### **Asegúrate de comprender:**
 
-- Nombre de la ubicación.
-- Una foto de la ubicación mostrada en un ImageView.
-- Mostrar el pin en un mini mapa.
+1. Cuándo y cómo es conveniente utilizar cada paradigma de navegación
+2. Cómo configurar segues en el storyboard
 
+#### **Objetivo**
+
+●   Reforzar los aprendizajes sobre las distintas opciones de navegación entre vistas
+
+●   Diseñar la navegación inicial del app que se está trabajando como proyecto final
+
+#### **Desarrollo:**
+
+●   Retomar el proyecto Xcode de la sesión anterior.
+
+●   Retomar la clase del AudioPlayer que se desarrolló en la sesión anterior
+
+●   En el Storyboard, incrusta el objeto TableViewController que hicimos, en un TabBarController.
+
+●   Crea la navegación de tipo ModalView desde la vista de Login (que se creó en el módulo básico) hasta este objeto TabBarController
+
+●   En la clase que agregamos, subclase de UITableViewCell implementa el método buttonTouchedOnCell cuando se toque el botón “play” en la celda, para que invoque a su delegado y desde esa clase, se muestre la vista del AudioPlayer de forma modal sobre el TabBarController.
+
+●   El item del segundo Tab, cámbialo por un TableViewController

@@ -1,33 +1,32 @@
 `Desarrollo Mobile` > `Swift Intermedio` 
 
-## Ampliando el Stack
+## Presentando ViewControllers
 
 ### OBJETIVO 
 
-- Con base a lo aprendido en el Ejemplo-01, implementar mas a fondo el uso de Stacks
+- Con base a lo aprendido en el Ejemplo-01, implementar la navegación entre dos ViewControllers.
 
 #### REQUISITOS 
 
-0. Xcode 11
-1. Ejemplo-01 concluido y funcionando.
+1. Xcode 
+2. Ejemplo-01 concluido y funcionando.
 
 #### DESARROLLO
 
-1. Con base al Ejemplo-01, implementar un nuevo flujo de tipo **Navigation** partiendo del **ViewController** inicial, agregar almenos 3 vistas.
+1. Con base al Ejemplo-01, implementar un tercer ViewController en el StoryBoard y conectarlo al segundo ViewController con el procedimiento descrito en el caso 3
 
-2. En la última vista del nuevo flujo, implementar un código que permita regresar a la vista **ANTERIOR**.
+2. En la segunda y tercera vistas del nuevo flujo, implementar un código que permita regresar a la vista **ANTERIOR**.
 
-3. En la última vista del nuevo flujo, implementar un código que permita regresar a la vista **INICIAL**.
+   
 
 
 <details>
    <summary>Solución</summary>
-	<p> Para regresar a la vista ANTERIOR, dentro del IBAction asignado al Button, implementamos: </p>
+		<p> Crea una clase que herede de UIViewController para cada uno de los objetos ViewController que tenemos en el StoryBoard (el primer ViewController ya tiene una clase). </p>
+  <p> Para regresar a la vista ANTERIOR, implementa un IBAction como se muestra en el caso 3 del ejemplo 1, y escribe el siguiente código: </p>
 	```
-	navigationController?.popViewController(animated: true)
-	```
-	<p> Para regresar a la vista INICIAL, dentro del IBAction asignado al Button, implementamos: </p>
-	```
-	navigationController?.popToRootViewController(animated: true)
+	self.dismiss(animated: true)
 	```
 </details>
+
+

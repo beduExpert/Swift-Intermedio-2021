@@ -1,11 +1,15 @@
 
 `Desarrollo Mobile` > `Swift Intermedio` 
 
-## UINavigation Controller, navigation stack
+## Modal views
+
+### INTRODUCCIÓN
+
+El paradigma de navegación más simple y más frecuentemente utilizado es cuando "reemplazamos" la vista actual con la nueva. A este mecanismo se le conoce como **Vista Modal**.
 
 ### OBJETIVO
 
-- Aprender como funciona el sistema de stacks al presentar una vista.
+- Conocerá la forma de implementar la navegación entre vistas de forma modal.
 
 #### REQUISITOS
 
@@ -13,114 +17,102 @@
 
 #### DESARROLLO
 
-En esta sesión nos enforamemos en el Navigaton Stack.
-Antes de comenzar, un objeto de tipo navigation controller maneja sus vistas utilizando un Array, conocido como navigation stack.
+En esta sesión nos enforamemos en la forma de presentar un ViewController sobre otro ViewController. 
 
-El primer view controller en el array es el **Root** View Controller y representa el stack que esta *mas al fondo*. El último VC en el array, él que esta mas por encima de todos y representa el ViewController que será mostrado, a este VC se le conoce como **the topmost item**.
+1. Implementar la navegación con código.
 
-![](0.png)
+Como se vio en la sesión anterior, la clase UIViewController define los métodos para presentar un segundo objeto ViewController sobre si misma, esto lo ponemos en práctica al presentar un Alert en nuestra app, y de la misma manera podemos presentar cualquier otro ViewController. Como se recordará el método en cuestion es: 
 
-#### Como enviar un ViewController al Top del Navigation Stack
+ **self**.present(alert, animated: **true**, completion: **nil**)
 
-Partiendo de la vista correspondiente a **ViewControllerA** pasaremos a un nuevo VC, **ViewControllerB**.
+Este método se puede utilizar con cualquier instancia de ViewController como se muestra en el ejemplo siguiente:
 
-1. Crearemos un nuevo proyecto, luego agregaremos dos VC en el Storyboard. Nos aseguramos de agregar el Navigation.
+ 	 **let** otherController = OtherViewController()
 
-![](1.png)
+​      **self**.present(otherController, animated: **false**, completion: **nil**)
 
-2. Mediante un **Push** navegaremos del `VC1 -> VC2`.
+Este método present esta directamente relacionado con otro método tambien definido en la clase UIViewController que nos permite remover un ViewController de la jerarquía de vistas:
 
-```
-let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-let viewControllerB = storyBoard.instantiateViewController(withIdentifier: "VC2") as! ViewControllerB  
-self.navigationController?.pushViewController(viewControllerB, animated: true)
-```
+ **self**.dismiss(animated: **true**, completion: **nil**)
 
-Ahora tenemos dos VC en el Stack, el VC2 es el **topmost item**.
-
-#### Como reemplazar un ViewController en el Stack
-
-Ahora que tenemos un stack de VC, podemos manipular un poco el orden.
-
-Agregaremos un tercer VC, este viewController reemplazará la posición del VC2.
-
-3. Creamos una instancia de VC3:
-
-```
-let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-let viewControllerC = storyBoard.instantiateViewControllerWithIdentifier("VC3") as! ViewControllerC
-```
-
-4. Obtenemos la lista de VC.
-
-```
-var stack = self.navigationController?.viewControllers
-```
-
-5. Removemos el último VC, el correspondiente a VC2.
-
-```
-stack!.removeLast()
-```
-
-6. Agregamos el VC a nuestro Stack.
-
-```
-stack!.append(viewControllerC)
-```
-
-7. Pasamos el stack al navigation controller.
-
-```
-self.navigationController?.setViewControllers(stack!, animated: true)
-```
-
-Ahora veamos todo el código en un solo `IBAction`:
-
-```
-@IBAction func buttonAction(_ sender: Any) {
-let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-let viewControllerC = storyBoard.instantiateViewController(withIdentifier: "VC3") as! ViewControllerC
-var stack = self.navigationController?.viewControllers
-stack!.removeLast()
-stack!.append(viewControllerC)
-self.navigationController?.setViewControllers(stack!, animated: true)
-}
-```
-
-#### Como pasar al ViewControllerC y convertirlo en el RootViewController
-
-1.  Para lograr esto, necesitamos hacer que el RootViewController sea el ViewControllerC, haciendo este VC el primero en el Stack.
-
-```
-private func removeAll() {
-let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-let viewControllerC = storyBoard.instantiateViewController(withIdentifier: "VC3") as! ViewControllerC
-var stack = self.navigationController?.viewControllers
-stack!.removeAll()
-stack!.append(viewControllerC)
-self.navigationController?.setViewControllers(stack!, animated: true)
-}
-```
-
-#### Resultados
-
-Navegando al VC2 y al regresar nos saltamos al VC3:
-
-![](0.gif)
-
-Navegando hasta el VC3, regresamos al RootViewController.
-
-![](1.gif)
+Supongamos que tenemos dos ViewControllers en el app, llamemosles ViewController1, ViewController2. Si queremos presentar ViewController2 sobre ViewController1, en ViewController1 debemos implementar el código que instancíe ViewController2 e invoque al metodo **present** como se explico anteriormente. Para completar la navegación dando al usuario la posibilidad de regresar de ViewController2 a ViewController1, en ViewController1 debemos implementar el metodo **dismiss**. 
 
 
 
+2. Definir segues en el StoryBoard.
+
+Otra manera de implementar la navegación es utilizando directamente el StoryBoard para conectar dos ViewControllers previamente colocados en él:
+
+- En la libreria busca y selecciona el objeto UIButton.
+
+- Una vez seleccionado el objeto, de la libreria arrastralo y colocalo en el ViewController1.
+
+- Una vez en el ViewController1, utiliza el clic y la tecla control para arrastrar desde el Button hasta tocar el ViewController2. Debe verse como se forma una linea como se ve en la imagen:
+
+  ![0](0.png)
+
+  
+
+- Desde el menú contextual selecciona Present modally, como se muestra en la siguiente imagen:
+
+  ![1](1.png)
 
 
 
+- Aparecera una linea conectando ambos ViewControlers, a esta linea le llamamos segue. Selecciona el segue que se acaba de crear y en el panel de inspección selecciona Presentation y elige la opcion Full Screen, como se muestra en la siguiente imagen:
+
+![2](2.png)
 
 
 
+- De esta forma en el momento en que el usuario toque el botón se producira la navegación anteriormente descrita sin necesidad de agregar ninguna linea de código.
+
+  
+
+3. Navegación ejecutando segues con código Swift.
+
+En ocasiones la navegación no puede ser automática como se describió en el punto número 2 si no que puede depender de la ejecución previa de algun código, para esto podemos crear los segues en el StoryBoard pero no conectarlos a un objeto si no directamente al FileOwner como se muestra en la siguiente imagen:
+
+![3](3.png)
 
 
 
+- Posteriormente en el menú contextual selecciona Present Modaly, al hacer esto, aparecera el segue conectando ambos ViewControlers, seleccionalo y en el panel de inspección selecciona Presentation y elige la opcion Full Screen como se hizo en el ejemplo anterior.
+
+- En el panel de inspección selecciona Identifier y asignale un identificador que te permita reconocer el segue, como se muestra en la siguiente imagen:
+
+  ![4](4.png)
+
+
+
+- En el panel de navegación selecciona el archivo ViewControler.swift y escribe el siguiente código: 
+
+  **@IBAction** **func** botonTouch(**_** sender:UIButton){
+
+  ​    **self**.performSegue(withIdentifier: "MySegue", sender: **self**)
+
+     
+
+    }
+
+  
+
+- Posteriormente, en el panel de navegación regresa al archivo Main.storyboard, una vez en el archivo usa el click secundario para seleccionar el FileOwner del ViewController1, para abrir el menú contextual como se muestra en la siguiente imagen:
+
+  ![5](5.png)
+
+
+
+- En el menú contextual selecciona botonTouch, que corresponde al action definido por el código que escribimos en el paso anterior, y arrastralo hacia el objeto UIButton que se encuentra en el ViewController1 como se muestra a continuación:
+
+  ![6](6.png)
+
+
+
+- Al hacer esto aparecera un menú con los eventos disponibles en la vista, en este menú  selecciona la opción **Touch Up Inside** como se muestra en la siguiente imagen:
+
+  ![7](7.png)
+
+
+
+Despues de implementar cualquiera de estos ejemplos ejecuta el app en el simulador de tu preferencia.

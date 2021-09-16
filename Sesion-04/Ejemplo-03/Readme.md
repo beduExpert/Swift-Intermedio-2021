@@ -1,76 +1,47 @@
-
 `Desarrollo Mobile` > `Swift Intermedio` 
 
-## Pasando datos entre ViewControllers
+## Navegación utilizando el objeto UITabBar
+
+### INTRODUCCIÓN
+
+El paradigma de navegación de "pestañas" es muy utilizado en el desarrollo de software. Esta implementación permitirá que se pongan a disposición del usuario varias vistas para que se pueda cambiar de una a otra sin necesidad de que se establezca una Stack de vistas como en el caso del NavigationController.
 
 ### OBJETIVO
 
-- Aprender a pasar información entre diferentes vistas de navegación.
+- Aprendera como mostrar diferentes ViewControllers utilizando el contenedor TabBar.
 
 #### REQUISITOS
 
-1. Xcode
-2. Comprender la implementación de TableViews y NavigationController.
+1.- Xcode 
 
 #### DESARROLLO
 
-En este ejemplo veremos como enviar datos a una vista de detalle. Se seleccionará un TableView cell y en la vista de detalle veremos la info correspondiente al elemento seleccionado.
+- Busca en la libreria el objeto TabBarController y arrastralo al Main.storyboard como se muestra en la siguiente imagen:
 
-1.- Crearemos un TableView con la información deseada (ejemplo Pokemons).
-
-![](0.png)
-
-2.- Creamos un nuevo proyecto de Xcode, con Swift y Storyboards. En el Storyboard crearemos dos ViewControllers y también crearemos su archivo de Clase .swift.
-
-![](1.png)
-
-3.- Procedemos a la conexión de elementos de UI con sus respectivos ViewControllers.
-
-4.- Crearemos un `DataModel`, esta clase se encargará de tener la información a mostrar.
-Para ello nos apoyaremos de usos de Enums y Structs. Ejemplo:
-
-![](2.png)
-
-5.- Regresando a nuestro ViewController principal (en donde esta nuestro TableView), mostraremos esta data del modelo de la sig. manera.
-
-![](3.png)
-
-6.- En la vista de detalle implementaremos el sig. Layout. 
-
-![](4.png)
-
-7.- Por supuesto, conectamos los elementos con sus ViewController.
-
-![](5.png)
-
-8.- Ya aprendimos a hacer una funcion de **Pop/Dismiss**, entonces agregamos dicha funcionalidad al IBAction de back.
-
-9.- En la función viewDidLoad, asignaremos los datos recibidos. Para poder recibir datos del TableView debemos primero identificar que Tipo de Dato necesitamos.
-
-En este caso estamos utilizando una Estructura de tipo *Pokemon*, entonces en nuestra vista de detalle utilizaremos una variable de tipo *Pokemon*. Luego asignaremos los valores correspondientes a nuestros IBOutlets.
-
-![](6.png)
-
-10.- Implementamos en la vista principal donde tenemos el TableView la funcion de ir a la vista de detalle al seleccionar una celda. Para ello pasamos la variable Pokemon.
-
-```
-  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let pokemon = data.pokemons[indexPath.row]
-    let vc = storyboard?.instantiateViewController(identifier: "detailViewController") as! DetailViewController
-    vc.pokemon = pokemon
-    self.present(vc, animated: true, completion: nil)
-  }
-```
-
-11.- Resultado Final.
-
-![](1.gif)
+![0](0.png)
 
 
 
+- Asegurate de que el objeto TabBar sea el Initial ViewController. Ejecuta el app en el simulador de tu preferencia y observa cual es el resultado.
+
+- En la libreria busca el objeto ViewController y arrastralo al archivo Main.storyboard. Ubicalo cerca del TabBar pero de manera que puedas verlo, no importa si queda encima de otro ViewController. Como se observa en la siguiente imagen:
+
+  ![1](1.png)
 
 
 
+- Crea un segue desde el FileOwner del TabBarController hacia el nuevo ViewControler, como se explico en el ejemplo 1, el resultado se muestra a continuación:
+
+  ![2](2.png)
 
 
 
+- Al hacer esto aparecera un menú contextual, en el menu, busca el apartado de Relationship Segue y selecciona la opcion view controllers, como se puede ver en esta imagen: 
+
+  ![3](3.png)
+
+
+
+- Es recomendable organizar tus ViewControllers para tener una vista más organizada del flujo de tu aplicación. Ejecuta el proyecto en el simulador de tu preferencia y el resultado debe ser como el que se muestra en la siguiente figura:
+
+  ![4](4.png)

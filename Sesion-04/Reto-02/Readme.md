@@ -1,42 +1,33 @@
- 
 `Desarrollo Mobile` > `Swift Intermedio` 
-	
-## Navegación completa por código
+
+## Ampliando el Stack
 
 ### OBJETIVO 
 
-- En la sesión 3 realizamos un proyecto de una app con login y vista de mapas. En este reto utilizaremos el proyecto final para implementar los flujos de navegación mediante código únicamente.
+- Con base a lo aprendido en el Ejemplo-02, implementar mas a fondo el uso de Stacks
 
 #### REQUISITOS 
 
-1. Proyecto final de la sesión 03 funcionando.
-
+0. Xcode 
+1. Ejemplo-02 concluido y funcionando.
 
 #### DESARROLLO
 
-1.- Abrir el Proyecto Final.
+1. Con base al Ejemplo-02, implementar un nuevo flujo de tipo **Navigation** partiendo del **ViewController** inicial, agregar almenos 3 vistas.
 
-2.- Dirigirnos al Storyboard y detectar el Segue:
+2. En la última vista del nuevo flujo, implementar un código que permita regresar a la vista **ANTERIOR**.
 
-![](0.png)
+3. En la última vista del nuevo flujo, implementar un código que permita regresar a la vista **INICIAL**.
 
-3.- Lo eliminamos e implementamos el código para mostrar esa misma vista.
 
 <details>
-        <summary>Solución</summary>
-<p> Una vez eliminado el Segue que conecta a Login con Register...</p>
-
-<p> Agregar un ID al Viewcontroller de Registro de cuenta.</p>
-
-<p> Ir al ViewController de login y agregar un IBAction al botón Registrar.</p>
-
-<p> Este IBAction implementará el sig. código: </p>
-
-```
-  @IBAction func register(_ sender: Any) {
-    let vc = storyboard?.instantiateViewController(identifier: "registerVC") as! AccountRegisterViewController
-    self.navigationController?.pushViewController(vc, animated: true)
-  }
-```
-
+   <summary>Solución</summary>
+	<p> Para regresar a la vista ANTERIOR, dentro del IBAction asignado al Button, implementamos: </p>
+	```
+	navigationController?.popViewController(animated: true)
+	```
+	<p> Para regresar a la vista INICIAL, dentro del IBAction asignado al Button, implementamos: </p>
+	```
+	navigationController?.popToRootViewController(animated: true)
+	```
 </details>
