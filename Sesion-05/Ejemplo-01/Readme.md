@@ -2,6 +2,9 @@
 
 ## App’s Life Cycle
 
+### INTRODUCCIÓN
+
+El ciclo de vida de una App es el primer tema a conocer para poder entender la manera en que se manejan los eventos principales en el App, asi como los que derivan del manejo de las vistas que se van a presentar en ella.
 
 ### OBJETIVO
 
@@ -9,7 +12,7 @@
 
 #### REQUISITOS
 
-1. Xcode 11
+1. Xcode
 
 #### TEORIA
 

@@ -3,13 +3,17 @@
 
 ## Ciclo de vida de un ViewController
 
+### INTRODUCCIÓN
+
+Los eventos que ocurren en el ciclo de vida de cada ViewController determinan el momento en que se pueden administrar los objetos que pertenecen a ese ViewController, comenzando por supuesto por el objeto UIView.
+
 ### OBJETIVO
 
-- - Aprender como funcionan los métodos en el ciclo de vida de un ViewController.
+- Aprender como funcionan los métodos en el ciclo de vida de un ViewController.
 
 #### REQUISITOS
 
-1. Xcode 11
+1. Xcode 
 
 #### TEORIA
 

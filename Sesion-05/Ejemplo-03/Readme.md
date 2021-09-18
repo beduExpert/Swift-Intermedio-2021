@@ -3,13 +3,17 @@
 
 ## Ciclo de vida de un View
 
+### INTRODUCCIÓN
+
+Ya que se ha comprendido lo que sucede cuando se instancia el objeto ViewController, es necesario analizar lo que ocurre con los objetos que dependen de él, incluso en el caso de que se agregue otro ViewController al objeto actual.
+
 ### OBJETIVO
 
 - Aprender la diferencia ente el ciclo de vida de un ViewController y de un View.
 
 #### REQUISITOS
 
-1. Xcode 11
+1. Xcode
 
 Como mencionamos un **View** y un **ViewController** no son lo mismo, pero están relacionados.
 
@@ -101,8 +105,7 @@ let subview = CustomView()
     subview.frame = CGRect(x: 100, y: 100, width: 50, height: 50)
     subview.backgroundColor = .blue
     self.view.addSubview(subview)
- ```
-
+```
 
 
 

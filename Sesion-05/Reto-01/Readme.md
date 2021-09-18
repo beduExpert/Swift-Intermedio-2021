@@ -1,4 +1,4 @@
- 
+
 `Desarrollo Mobile` > `Swift Intermedio` 
 	
 ## Reto App’s Life Cycle
@@ -9,7 +9,7 @@
 
 #### REQUISITOS 
 
-1. Xcode 11
+1. Xcode
 
 #### DESARROLLO
 
@@ -38,5 +38,4 @@ applicaitionWillTerminate
   }
 ```
 </details>
-
 
