@@ -40,7 +40,7 @@ El propósito de este Postwork es retomar el proyecto Xcode del módulo Fundamen
 
 ●   Agrega una nueva vista en el StoryBoard, que sea de tipo TableViewController.
 
-●   Agrega el archivo Swift correspondiente y conéctalo en el StoryBoard.
+●   Agrega el archivo Swift correspondiente y conéctalo en el StoryBoard. Nómbralo **TracksTableViewController.swift**
 
 ●   Observa la siguiente imagen y determina lo que se solicita.
 
@@ -56,9 +56,39 @@ El propósito de este Postwork es retomar el proyecto Xcode del módulo Fundamen
 
  
 
+- En nuestro archivo Modelos.swift agrega una estructura Track :
+
+````
+  struct Track {
+  	let title: String
+      let artist: String
+      let album: String
+  } 
+````
+
+  ​
+
+
+  Además añade una constante tipo arreglo de Track de la siguiente forma, donde agregarás todos los objetos que correspondan a las canciones mostradas en la imagen:
+
+````
+let misTracks = [ 	Track(title:"Like A Rolling Stone", artist:"Bob Dylan", album:""),
+					Track(title:"Walk On The Wild Side", artist:"Lou Reed", album:""),
+                    Track ( .....  )
+                    …
+                    …
+                    …,  etc,                                        
+                    ]
+````
+  
+
 ●   En el archivo Swift implementa los métodos necesarios para que la tabla despliegue el número de secciones y celdas que se determinaron necesarias para reflejar esa pantalla.
 
-●   En el archivo Swift implementa el código necesario para que cada celda muestre el título de la canción o álbum, según se muestra en la imagen.
+●   En el archivo Swift implementa el código necesario para que cada celda muestre el título de la canción o álbum, según se muestra en la imagen. Hazlo considerando lo siguiente:
+
+​	a. Debes configurar el **reuseIdentifier** en el storyboard para que no se produzca un error fatal (recuerda lo estudiado durante la sesión).
+
+​	b. Cada objeto del arreglo es de tipo **Track**, que es una estructura con el campo **title.**
 
 ●   Implementa el código necesario para que el TableView tenga el mismo look&feel que en la imagen (fondo negro y letras blancas).
 
