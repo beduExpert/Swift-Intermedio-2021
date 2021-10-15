@@ -3,6 +3,10 @@
 
 ## Manejo de memoria 
 
+### INTRODUCCIÓN
+
+El manejo de la memoria es **el tema**, así subrayado, en el desarrollo móvil. Es sumamente importante no perder de vista que aunque los dispositivos móviles han ido avanzando y mejorando en sus capacidades prácticamente cada año, aún siguen siendo dispositivos que en su mayoría cuentan con recursos limitados, específicamente en cuanto a memoria RAM se refiere. Es por esto que un adecuado entendimiento de como se asigna y se libera la memoria, es fundamental para desarrollar apps que funcionen de manera eficiente y no corran el riesgo de provocar fugas de memoria que podrían causar un rechazo en la AppStore.
+
 ### OBJETIVOS 
 
 - Aprender el funcionamiento de ARC, y cómo crear código en Swift  para el manejo óptimo de memoria.
@@ -33,6 +37,9 @@
 	- [Ejemplo 03](Ejemplo-03)
 	- [Reto 03](Reto-03)
 
+### Postwork
+
+- [Postwork](Postwork)
 
 
 

@@ -1,25 +1,26 @@
- 
-`Desarrollo Mobile` > `Swift Intermedio` 
 
-## Implementacion de Reto-02 con Structs
+`Desarrollo Mobile` > `Swift Intermedio` 
+​	
+## Retain Cycles
 
 ### OBJETIVO 
 
-- Aprender a detectar Retain Cycles con las herramientas de Xcode y como corregirlo.
+- Aplicar los conocimientos adquiridos sobre los distintos tipos de referencias en Swift.
 
 #### REQUISITOS 
 
-1. Xcode 11
+1. Proyecto realizado en el Ejemplo-01
 
 #### DESARROLLO
 
-1.- De acuerdo al diagrama crear las estructuras correspondientes y evitar un Retain Cycle.
+1.- Con base en el proyecto original (referencias **strong**), implementar la función:
 
-![](0.png)
+> CFGetRetainCount(object)
 
+2.- Y obtener el número de retains que tiene cada objeto.
 
-<details>
-        <summary>Solución</summary>
-<p>La respuesta es no es posible.</p>
+3.- Cambia el tipo de referencias a **weak** y vuelve a ejecutar el proyecto para comprobar si hay cambios en el conteo de referencias.
 
-</details>
+4.- ¿Si se cambiara el modo de referencias a **unowned** habría algún cambio respecto a los resultados de las dos ejecuciones anteriores?
+
+Comparte tus resultados con tus compañeros y el experto y discutan sus descubrimientos.

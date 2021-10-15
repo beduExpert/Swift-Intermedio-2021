@@ -2,13 +2,17 @@
 
 ## Provocando Memory Leaks
 
+### INTRODUCCIÓN
+
+Un memory leak o fuga de memoria se produce cuando alguna dirección de memoria se queda utilizada pero no referenciada, de manera que no es posible liberarla para recuperar ese espacio. Es el problema que mas frecuentemente ocurre en las Apps móviles, y el que más disgustos puede provocar en los usuarios, pues una App que tiene "fugas" puede rápidamente ralentizar el desempeño del dispositivo y drenar los recursos.
+
 ### OBJETIVO
 
 - Entender que es un Memory Leak y que lo provoca.
 
 #### REQUISITOS
 
-1. Xcode 11
+1. Xcode
 
 #### DESARROLLO
 

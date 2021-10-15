@@ -1,20 +1,25 @@
- 
+
 `Desarrollo Mobile` > `Swift Intermedio` 
-	
-## Retain Cycles
+
+## Implementacion de Reto-02 con Structs
 
 ### OBJETIVO 
 
-- Lo que esperamos que el alumno aprenda 
+- Aprender a detectar Retain Cycles con las herramientas de Xcode y como corregirlo.
 
 #### REQUISITOS 
 
-1. Lo necesario para desarrollar el ejemplo o el Reto 
+1. Xcode 
 
 #### DESARROLLO
 
-1.- Con base en el Ejemplo-02, implementar la función:
+1.- De acuerdo al diagrama del reto anterior, analiza si es posible implementar el diseño con structs en vez de class, y si con eso se evita el **retainCycle**.
 
-> CFGetRetainCount(object)
+![](0.png)
 
-2.- Obtener el número d eretains que tiene cada objeto.
+
+<details>
+        <summary>Solución</summary>
+<p>La respuesta es no es posible.</p>
+
+</details>

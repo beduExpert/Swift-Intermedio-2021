@@ -2,13 +2,17 @@
 
 ## Debuggeando Retain Cycles
 
+### INTRODUCCIÓN
+
+En todo proyecto de desarrollo sin importar el lenguaje, siempre es útil conocer las herramientas de depuración de código que que tengamos disponibles en el IDE. En Xcode tenemos, además de la revisión de código que ofrece cualquier depurador, herramientas para poder comprobar como se instancian y destruyen las variables a lo largo de la ejecución de nuestra App.
+
 ### OBJETIVO
 
 - Aprender a utilizar las herramientas de Xcode para encontrar Memory Leaks o Retain Cycles.
 
 #### REQUISITOS
 
-1. Xcode 11.
+1. Xcode
 2. Ejemplo-01 funcionando.
 
 #### DESARROLLO
