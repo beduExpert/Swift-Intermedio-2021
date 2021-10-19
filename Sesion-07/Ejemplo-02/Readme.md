@@ -4,6 +4,10 @@
 
 ## Integrando Objective-c en Swift
 
+### INTRODUCCIÓN
+
+Swift está diseñado para ser interoperable con Objective-C. Esto es una gran ventaja porque aún hay mucho *Legacy code* en el mercado escrito en ObjC, con funcionalidades que tal vez no tegamos el tiempo (o el presupuesto) para transcribir a Swift. Así que lo más práctico es que en nuestro código iOS podamos usar ambos.
+
 ### OBJETIVO
 
 - Como integrar archivos de clase de Objective-C y hacerlos funcionar en Swift.
@@ -12,7 +16,7 @@
 
 1. Archivos de clase en la carpeta [CodeObjc](CodeObjc).
 
-2. Xcode 11
+2. Xcode
 
 #### DESARROLLO
 

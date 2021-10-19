@@ -3,6 +3,10 @@
 
 ## Primera App en Objective-C
 
+### INTRODUCCIÓN
+
+Varios aspectos de la sintaxis y estructura de funcionamiento de ObjC están también presentes en Swift, ya que como se ha comentado Swift no es un reemplazo para este. Varias de las especificaciones de ObjC las reconocerás también en Swift y la mejor manera de introducirnos al lenguaje, será haciendo un proyecto básico.
+
 ### OBJETIVO
 
 - Aprender las bases de un proyecto en Objective-C. 
@@ -11,7 +15,7 @@
 
 #### REQUISITOS
 
-1. Xcode 11
+1. Xcode
 
 #### DESARROLLO
 

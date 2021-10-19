@@ -1,54 +1,42 @@
 `Desarrollo Mobile` > `Swift Intermedio` 
 
-## Creando tu propio Pod
+## **POSTWORK**
+
+## Sesión 08
+
+## **Manejo de dependencias Cocoapods, Swift Package Manager y Carthage**
+
+### **INTRODUCCIÓN**
+
+En este postwork se aplicarán los conocimientos adquiridos en la sesión sobre el uso de los distintos manejadores de dependencias disponibles en Swift.
 
 ### OBJETIVO
 
-- En este PostWork intentaremos crear nuestro propio Pod.
-- Aunque es un tema que pueda considerarse avanzado, tener nociones del proceso de creación abre el panorama del alumno como desarrollador.
+- Reforzar los aprendizajes sobre la forma en que se manejan las dependencias en un App iOS
+- Utilizar un framework externo para simplificar funcionalidades en un App
 
 #### REQUISITOS
 
-0. Conexión a Internet
-1. Contraseña de administrador del sistema.
-2. Terminal de macOS 
-3. Xcode 11
-4. Cuenta en GitHub
+0. Xcode
+4. Proyecto del Módulo
 
 #### DESARROLLO
 
-1.- Crear un proyecto en Xcode simple.
+1. Descarga el archivo MP3 de este link:
 
-2.- Crear dos repositorios, uno para el código y otro para incluir la Info del proyecto.
+   [Ukulele Song](bensound-ukulele.mp3)
 
-Ejemplo:
+2. Agrega al proyecto el Framework AudioPlayer, que está disponible en está dirección:
 
-```
-MyApp
-MyAppSpec
-```
+   https://github.com/tbaranes/AudioPlayerSwift
 
-3.- Crear un repositorio privado en tu instalación de cocoapods.
+   Puedes usar el manejador de dependencias de tu preferencia, ya que el framework está disponible en las 3 versiones (pod, Carthage y SPM)
 
-> pod repo add [REPO_NAME] [SOURCE_URL]
+3. Revisa la documentación del framework para entender qué clases/objetos define y cómo se pueden utilizar.
 
-En REPO_NAME ira e name de Spec y en SOURCE_URL el URL del repo del código de github.
+4. Implementa lo siguiente:
 
-Linkeamos el repositorio.
-
-```
-cd ~/.cocoapods/repos/REPO_NAME
-pod repo lint .
-```
-
-4.- Generamos un Pod project
-
-> pod lib create [POD_NAME]
-
-
-Todo bien...
-continuemos con los [Pasos siguientes.](https://medium.com/@shahabejaz/create-and-distribute-private-libraries-with-cocoapods-5b6507b57a03).
-
-
-
-
+   - Cuando aparezca la vista del AudioPlayer, se debe reproducir el archivo mp3
+   - El usuario podrá utilizar los botones “play”, “stop”, así como el primer slider para controlar la reproducción de la canción
+   - En la sesión5 programaste la detección de sacudida, de forma que ahora solo hay que implementar que si el teléfono es movido el audio se detenga y/o se reinicie.
+   - El usuario podrá utilizar el segundo slider para subir o bajar el volumen de la canción.

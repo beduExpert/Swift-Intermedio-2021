@@ -9,7 +9,7 @@
 
 #### REQUISITOS 
 
-1. Xcode 11 
+1. Xcode 
 
 #### DESARROLLO
 
@@ -17,7 +17,7 @@
 
 2.- Agregar dos **UITextFields**, un **UILabel** y un **UIButton**.
 
-3.- Se debe mostrar en un UILabel la suma de sus valores enteros.
+3.- Se debe mostrar en el UILabel la suma de los dos valores enteros que esperamos que el usuario introduzca en los cuadros de texto.
 
 Además, si los inputs son iguales pintar el texto en verde, si son diferentes en rojo.
 

@@ -3,13 +3,19 @@
 
 ## Implementando custom clases en Storyboard
 
+### INTRODUCCIÓN
+
+Al igual que en el ejemplo anterior, se revisarán las capacidades que nos ofrece el combinar los dos lenguajes de programación nativos que nos ofrece Apple para el desarrollo iOS.
+
+
+
 ### OBJETIVO
 
 - Implementar clases en Objective-C directamente en el Storyboard.
 
 #### REQUISITOS
 
-1. Xcode 11.
+1. Xcode 
 2. [Clases](classes) proporcionadas para realizar el ejemplo.
 
 #### DESARROLLO

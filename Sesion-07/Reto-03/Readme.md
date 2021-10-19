@@ -1,7 +1,7 @@
  
- 
+
 `Desarrollo Mobile` > `Swift Intermedio`
-	
+​	
 ## Integrando clases mas complejas
 
 ### OBJETIVO 
@@ -10,10 +10,10 @@
 
 #### REQUISITOS 
 
-0. Xcode 11
-1. Archivos de template, utilizar la [Libreria](library).
-2. Agregar la imagen proporcionada.
-3. Utilizar el [Proyecto de App](appcode).
+1. Xcode
+2. Archivos de template, utilizar la [Libreria](library).
+3. Agregar la imagen proporcionada.
+4. Utilizar el [Proyecto de App](appcode).
 
 #### DESARROLLO
 
