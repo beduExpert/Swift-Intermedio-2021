@@ -1,86 +1,56 @@
- 
+
 Desarrollo Mobile` > `Swift Intermedio` 
-	
-## Animaciones y Pods
 
-### OBJETIVO 
+## Material App
 
-- Adaptar clases para hacerlas más genéricas.
-- Instalar Pods
-- Aprender a utilizar Lottie.
+### OBJETIVO
 
-#### REQUISITOS 
+Usar el paquete agregado a nuestra app con Carthage. 
 
-0. Conexión a Internet
-1. Contraseña de administrador del sistema.
-2. Terminal de macOS 
-3. Xcode 11
+#### REQUISITOS
+
+1. Conexión a Internet
+2. Contraseña de administrador del sistema.
+3. Xcode
+4. Proyecto terminado del Ejemplo-02
 
 #### DESARROLLO
 
-1.- Agregar más animaciones a tu proyecto.
+El reto consiste en leer la documentación del paquete y aprender como se usa.
 
-2.- Elige las que te gusten, pero deben estar implementadas en vistas distintas de la app.
+1.- Revisa la documentación del paquete **Material** que se encuentra en su repositorio de GitHub:
 
-3.- Descarga los archivos en [LottieFiles](https://lottiefiles.com/recent?page=6).
+````
+https://github.com/CosmicMind/Material
+````
 
-![](0.png)
 
-4.- Quizás tengas que modificar la clase **LoaderView**.
+
+y analiza los distintos elementos de UIKit que se pueden personalizar
+
+2.- Agrega un botón de tipo *Rised Button* a la vista, con fondo rojo titulo blanc, con el texto "Touch Me" para que quede como se ve en la imagen:
+
+![0.gif](0.gif)
+
+
 
 <details>
-	<summary>Solución</summary>
-	<p> Así como se agregó un UIView en la vista de Login, agregar uno en la vista de tu preferencia, puede ser en el **MainViewController**.</p>
-	<p> Esta vista debe heredar de LoaderView.</p>
-	<p> Dentro del ViewController implementar el código asignandole el nombre del JSON, y una función que permita ejecutar la animación.</p>
+
+        <summary>Solución</summary>
+        <p> Agrega este código al método viewDidLoad:</p>
+</details>
+
 
 ```
-  @IBOutlet weak var animationView: LoaderView!
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    // TableView
-    animationView.name = "plane"
-    animationView.play()
-    animationView.clipsToBounds = true
-    // more code here...
-    }
-```
-<p> La clase de **LoaderView** se modificaria: </p> 
+ let button = RaisedButton(title: "Touch Me", titleColor: .white)
+        button.pulseColor = .white
+        button.backgroundColor = Color.red.base
+        button.frame.size.width = 140
+        button.frame.size.height = 48
+        button.center = self.view.center
+        button.frame = button.frame.offsetBy(dx: 0, dy: 50)
+        view.addSubview(button)
 
 ```
-import UIKit
-import Lottie
 
-public class LoaderView: UIView {
-  
-  var name: String?
-  
-  override init(frame: CGRect) {
-    super.init(frame: frame)
-  }
-  
-  required init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-  }
-  
-  func play() {
-    guard let name = name else { return }
-    let animationView = AnimationView(name: name)
-    animationView.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
-    animationView.center = self.center
-    animationView.animationSpeed = 0.2
-    animationView.contentMode = .scaleAspectFill
-    self.addSubview(animationView)
-    animationView.play()
-    animationView.translatesAutoresizingMaskIntoConstraints = false
-    animationView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-    animationView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-    animationView.widthAnchor.constraint(equalToConstant: self.frame.width).isActive = true
-    animationView.heightAnchor.constraint(equalToConstant: self.frame.height).isActive = true
-  }
-}
-```
-
-</details> 
 

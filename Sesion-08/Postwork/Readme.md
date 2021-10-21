@@ -17,8 +17,8 @@ En este postwork se aplicarán los conocimientos adquiridos en la sesión sobre 
 
 #### REQUISITOS
 
-0. Xcode
-4. Proyecto del Módulo
+1. Xcode
+2. Proyecto del Módulo
 
 #### DESARROLLO
 
@@ -26,9 +26,9 @@ En este postwork se aplicarán los conocimientos adquiridos en la sesión sobre 
 
    [Ukulele Song](bensound-ukulele.mp3)
 
-2. Agrega al proyecto el Framework AudioPlayer, que está disponible en está dirección:
+2. Agrega al proyecto el paquete SwiftySound, que está disponible en está dirección:
 
-   https://github.com/tbaranes/AudioPlayerSwift
+   https://github.com/adamcichy/SwiftySound
 
    Puedes usar el manejador de dependencias de tu preferencia, ya que el framework está disponible en las 3 versiones (pod, Carthage y SPM)
 
@@ -36,7 +36,8 @@ En este postwork se aplicarán los conocimientos adquiridos en la sesión sobre 
 
 4. Implementa lo siguiente:
 
+   - Agrega a la clase una propiedad para controlar el audio.
    - Cuando aparezca la vista del AudioPlayer, se debe reproducir el archivo mp3
-   - El usuario podrá utilizar los botones “play”, “stop”, así como el primer slider para controlar la reproducción de la canción
-   - En la sesión5 programaste la detección de sacudida, de forma que ahora solo hay que implementar que si el teléfono es movido el audio se detenga y/o se reinicie.
+   - El usuario podrá utilizar los botones “play”, “stop” para controlar la reproducción de la canción
+   - En la sesión 5 se implementó que cuando el teléfono sea movido, se conmuta el valor de la propiedad isPlaying. Agrega la función de reiniciar o detener la reproducción del audio. (OJO: la propiedad debería tener de inicio, un valor acorde al estado actual del sonido)
    - El usuario podrá utilizar el segundo slider para subir o bajar el volumen de la canción.

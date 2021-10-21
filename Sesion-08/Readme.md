@@ -5,11 +5,15 @@
 
 ### INTRODUCCIÓN
 
-
+Para el manejo de las dependencias en los proyectos desarrollados con Xcode, tenemos disponibles tres opciones. Dos que son desarrollos externos, como lo son Cocoapods y Carthage, y además tenemos Swift Package Manager que es la propuesta oficial de Apple. En esta sesión aprenderemos a utilizar las tres para que puedas finalmente decidir cuál utilizarás en caso de que requieras agregar paquetes de terceros a tus proyectos.
 
 ### OBJETIVOS 
 
-- Aprender a utilizar y configurar los manejadores de dependencias mas utilizados, Cocoapods y Carthage.
+- Aprender a utilizar y configurar los manejadores de dependencias disponibles para proyectos Xcode
+
+- Determinar las ventajas y desventajas que ofrece cada manejador.
+
+  ​
 
 #### REQUISITOS GENERALES
 
@@ -20,20 +24,15 @@
 
 #### ORGANIZACION DE LA CLASE 
 
-- CocoaPods. Que es, para que sirve y como hacer su instalación
-- Instalando tu primera Dependencia. Pod file.
+- CocoaPods.
+  - [Instalando tu primera Dependencia. Pod file](Ejemplo-01)
+  - [Usando un Pod.](Reto-01)
 
-  - [Ejemplo 01](Ejemplo-01)
-  - [Reto 01](Reto-01)
-
-- Usando Pods instalados.
-
-  - [Ejemplo 02](Ejemplo-02)
+- Carthage.
+  - [Agregando dependencias con Carthage](Ejemplo-02)
   - [Reto 02](Reto-02)
 
-- CocoaPods vs Carthage
-- Instalando Carthage
-- Compilando dependencias con Carthage
+- Swift Package Manager
+  - [Agregando un paquete con SwiftPM](Ejemplo-03)
+  - [Animaciones en nuestra App](Reto-03)
 
-  - [Ejemplo 03](Ejemplo-03)
-  - [Reto 03](Reto-03)

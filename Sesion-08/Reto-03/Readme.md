@@ -1,72 +1,88 @@
- 
+
 Desarrollo Mobile` > `Swift Intermedio` 
+​	
+## Más Animaciones 
 
-## YouTube App
+### OBJETIVO 
 
-### OBJETIVO
+- Practicar la instalación de paquetes.
+- Adaptar tu clase Loader para hacerla más genérica.
+- Aprender a utilizar Lottie.
 
-Con base a la documentación del Readme de algún repositorio, crear una app utilizando Cocoapods.
+#### REQUISITOS 
 
-#### REQUISITOS
+1. Conexión a Internet
 
-0. Conexión a Internet
-1. Contraseña de administrador del sistema.
-2. Terminal de macOS 
-3. Xcode 11
+2. Xcode 
+
+3. Terminal de macOS (en caso necesario)
+
+4. Contraseña de administrador del sistema. (en caso necesario)
+
+   ​
 
 #### DESARROLLO
 
-Esta vez crearemos un proyecto nuevo, donde implementaremos la instalación de este Pod.
+1.- Crea un nuevo proyecto para probar más animaciones
 
-El reto consiste en leer la documentación del Pod.
+2.- Instala el paquete Lottie usando el manejador de dependencias de tu preferencia.
 
-Con base a la documentación, instalar el **Pod** en un proyecto de iOS.
+3.- Elige las animaciones que te gusten en [LottieFiles](https://lottiefiles.com/recent?page=6). Descarga los archivos y agregalos a tu proyecto
 
-El Pod es para reproducir videos de YouTube.
+![](0.png)
 
-> https://github.com/youtube/youtube-ios-player-helper
-
-Implementar un **UIView** que herede de la clase del *Pod* (investigar que clase es).
-
-Una vez implementada la clase, agregar un **Key** para reproducir video.
-
-Ejemplo:
-
-> https://www.youtube.com/watch?time_continue=2&v=velPquCnw7k
-
-El Key sería: `velPquCnw7k`.
+4.-Modifica lo necesario en la clase **LoaderView**.
 
 <details>
-        <summary>Solución</summary>
-        <p> Instalar el Podfile en el proyecto de Xcode.</p>
-        <p> Una vez agregado el Podfile, ir al Storyboard.</p>
-        <p> En el Storyboard, agregar un UIView y en el Inspector agregar la Clase. La clase es: YTPlayerView</p>
-         <p> Un botón enviará el video a reproducir.</p>
-</details>
-<p> Para reproducir el video, son necesarios algunos parámetros </p>
+	<summary>Solución</summary>
+	<p> En la clase ViewController.swift quedaría así:</p>
 
 ```
- public let YouTubeParams: [String: Any] = [
-    "autoplay": 0,
-    "playsinline" : 1,
-    "enablejsapi": 1,
-    "wmode": "transparent",
-    "controls": 0,
-    "showinfo": 0,
-    "rel": 0,
-    "fs" : 1,
-    "modestbranding": 0,
-    "iv_load_policy": 3
-  ]
+  var animationView = LoaderView()
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    animationView.frame = view.bounds
+    view.addSubview(animationView)
+    animationView.name = "plane"
+    animationView.play()
+ }
+```
+<p> La clase **LoaderView** se modificaria así: </p> 
 
 ```
+import UIKit
+import Lottie
 
-<p> Será necesario conectar el delegate </p>
-
+public class LoaderView: UIView {
+  
+  var name: String?
+  
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+  }
+  
+  func play() {
+    guard let name = name else { return }
+    let animationView = AnimationView(name: name)
+    animationView.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
+    animationView.center = self.center
+    animationView.animationSpeed = 0.2
+    animationView.contentMode = .scaleAspectFill
+    self.addSubview(animationView)
+    animationView.play()
+    animationView.translatesAutoresizingMaskIntoConstraints = false
+    animationView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+    animationView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+    animationView.widthAnchor.constraint(equalToConstant: self.frame.width).isActive = true
+    animationView.heightAnchor.constraint(equalToConstant: self.frame.height).isActive = true
+  }
+}
 ```
-self.videoView.delegate = self
-```
 
+</details> 
 
-
-![](0.gif)

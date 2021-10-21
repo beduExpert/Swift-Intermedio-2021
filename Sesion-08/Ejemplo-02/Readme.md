@@ -1,42 +1,92 @@
 
-`Desarrollo Mobile` > `Swift Intermedio`
+Desarrollo Mobile` > `Swift Intermedio` 
 
-## Utilizando el Pod para agregar funcionalidad
+## Agregando dependencias con Carthage
 
 ### OBJETIVO
 
-- Una vez integrado un **Pod**, el alumno deberá ser capaz de utilizar el código para agregar funcionalidad extra a su proytecto.
+Aprender como agregar y compilar dependencias con Carthage
+
 
 #### REQUISITOS
+1. Conexión a Internet
+2. Contraseña de administrador del sistema.
+3. Terminal de macOS 
+4. Xcode 
 
-0. Conexión a Internet
-1. Contraseña de administrador del sistema.
-2. Terminal de macOS 
-3. Xcode 11
 
 #### DESARROLLO
 
-1.- Ya tenemos el JSON y el pod instalado, procedemos a crear una función que permita agregar la animación en un UIView.
-
-2.- Creamos una nueva clase de Swift en el proyecto y comenzamos a escribir...
-
-![](0.png)
-
-**NOTA**: *"fish"* es el nombre del *JSON* de la animación. Manejar nombres en minúsculas sin caracteres especiales ni números.
+Vamos a crear una App donde se muestre una animación. Integrando una librería de Carthage a un proyecto de iOS.
 
 
-3.- Para agregar la animación nos apoyaremos de una clase con función estática.
+1.- Crearemos un nuevo proyecto en Xcode, basándonos en Storyboards y Swift.
 
-![](1.png)
+2.- Con la Terminal nos dirigimos a la carpeta de nuestro proyecto.
 
-4.- En donde gustes colocar la animación, agregar un Subview con fondo transparente.
-Este subview deberá heredar de la clase LoaderView.
+3.- Ingresamos este comando para crear un Cartfile.
 
-![](2.png)
+````
+touch Cartfile
+````
 
-#### Resultados
+4.- Abrimos el archivo en Xcode con este comando:
+
+````
+open -a Xcode Cartfile
+````
+
+5.- Agregamos la URL del paquete que vamos a usar. Este paquete nos ofrece muchas opciones para personalizar y hacer más dinámicos los objetos UIKit.
+````
+github "CosmicMind/Material"
+````
+
+6.- Salvamos y cerramos el archivo, y regresamos a la Terminal. Ahora introducimos este comando para descargar todos los paquetes relacionados en el archivo Cartfile:
+````
+carthage update --use-xcframeworks
+````
+
+7.- Una vez finalizado, agregaremos el framework en nuestros Linked Libraries.
+
+Debe estar en un Path parecido a este:
+
+> ./Carthage/Build/Material.xcframework
 
 ![](0.gif)
+
+En el caso de este paquete, se ocupan dos frameworks, recuerda que siempre es necesario consultar la documentación de los paquetes que agreguemos a nuestro proyecto. En la misma carpeta encontrarás **Motion.xcframework**. Repite el proceso anterior para agregarlo.
+
+8.- Desarrollaremos la App agregando el Framework a nuestra clase ViewController.swift
+
+````
+import Material
+````
+
+9.- En el método **viewDidLoad** agrega este código:
+
+````
+        let emailField = ErrorTextField()
+        emailField.placeholder = "Email"
+        emailField.isClearIconButtonEnabled = true
+        emailField.isPlaceholderUppercasedWhenEditing = true
+        emailField.placeholderAnimation = .hidden
+        emailField.placeholderNormalColor = Color.amber.darken4
+        emailField.placeholderActiveColor = Color.pink.base
+        emailField.dividerNormalColor = Color.cyan.base
+        emailField.dividerActiveColor = Color.green.base
+        let leftView = UIImageView()
+        leftView.image = Icon.email
+        emailField.leftView = leftView
+        emailField.frame.size = CGSize(width: 200, height: 45)
+        emailField.center = self.view.center
+        self.view.addSubview(emailField)
+````
+
+
+
+
+
+
 
 
 
