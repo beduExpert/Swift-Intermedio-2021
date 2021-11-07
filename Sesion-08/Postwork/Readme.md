@@ -26,11 +26,11 @@ El propósito de este Postwork es retomar el proyecto Xcode del módulo y realiz
 1. Descarga el archivo “bensound-ukulele.MP3” de este link:
 
    [Ukulele Song](bensound-ukulele.mp3)
-Luego, agrégalo al proyecto.
+   Luego, agrégalo al proyecto.
 
-2. Agrega al proyecto el paquete SwiftySound, que está disponible en este repositorio:
+2. Agrega al proyecto el paquete AudioPlayer, que está disponible en este repositorio:
 
-   https://github.com/adamcichy/SwiftySound
+   https://github.com/tbaranes/AudioPlayerSwift
 
    Es posible emplear el manejador de dependencias de tu preferencia, ya que el paquete está disponible en las 3 versiones (CocoaPods, Carthage y SPM).
 
@@ -43,6 +43,6 @@ Luego, agrégalo al proyecto.
    - Haz que cuando aparezca la vista del AudioPlayer, se reproduzca el archivo mp3
    - Haz que el usuario pueda utilizar los botones “play”, “stop” para controlar la reproducción de la canción.
    - En la sesión 5 se implementó que cuando el teléfono es movido se conmuta el valor de la propiedad isPlaying. Añade la función de reiniciar o detener la reproducción del audio al sacudir el dispositivo.  
-   Nota: la propiedad debería tener de inicio, un valor acorde al estado actual del sonido.
+     Nota: la propiedad debería tener de inicio, un valor acorde al estado actual del sonido.
    - Haz que el usuario pueda utilizar el segundo slider para subir o bajar el volumen de la canción.
 
