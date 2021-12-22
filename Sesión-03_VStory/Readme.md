@@ -16,13 +16,13 @@ El diseño de la interfaz de un App es parte fundamental del proceso de desarrol
 
   - [Ejemplo 01](Ejemplo-01)
   - [Reto 01](Reto-01)
-- Componentes de UIKit que usan delegados
+- Agregando funcionalidades a los controles
 
   - [Ejemplo 02](Ejemplo-02)
   - [Reto 02](Reto-02)
-- Utilizando el objeto UITextField.
+- Componentes de UIKit que usan delegados
   - [Ejemplo 03](Ejemplo-03)
-- Agregando funcionalidades a los controles
+- Utilizando el objeto UITextField.
   - [Ejemplo 04](Ejemplo-04)
   - [Reto 03](Reto-03)
 
